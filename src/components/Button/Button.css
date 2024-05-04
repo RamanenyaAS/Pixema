@@ -1,0 +1,26 @@
+.button-primary, .button-secondary{
+  width: 199px;
+  height: 56px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+.button-primary{
+  background-color: #7B61FF;
+}
+.button-primary:hover{
+  background-color: #917CFF;
+}
+.button-primary:disabled, .button-secondary:disabled{
+  color: #AFB2B6;
+  background-color: #80858B;
+}
+.button-secondary{
+  background-color: #323537;
+}
+.button-secondary:hover{
+  color: #AFB2B6;
+}

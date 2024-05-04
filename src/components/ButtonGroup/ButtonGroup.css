@@ -1,0 +1,13 @@
+.button-group-block{
+  display: flex;
+}
+.left-button, .right-button{
+  cursor: pointer;
+  background-color: #323537;
+}
+.left-button{
+  border-radius: 0px 0px 0px 10px;
+}
+.right-button{
+  border-radius: 10px 0px 0px 0px;
+}
