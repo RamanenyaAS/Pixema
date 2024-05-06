@@ -1,13 +1,24 @@
 .button-group-block{
   display: flex;
+  align-items: center;
 }
 .left-button, .right-button{
+  width: 130px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   cursor: pointer;
   background-color: #323537;
 }
 .left-button{
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 1px solid black;
 }
 .right-button{
-  border-radius: 10px 0px 0px 0px;
+  border-radius: 0px 10px 10px 0px;
+}
+.button-group__image{
+  width: 24px;
+  height: 24px;
 }
