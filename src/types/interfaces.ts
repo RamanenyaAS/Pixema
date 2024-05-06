@@ -5,6 +5,7 @@ export interface IButton{
 }
 
 export interface IInput{
+  title: string,
   type: string,
   placeholder: string,
   autocomplete?: string,

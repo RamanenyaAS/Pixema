@@ -6,6 +6,7 @@ import IconShare from "../../images/IconShare.svg"
 function ButtonGroup() {
   return (
     <>
+    {/* при hover поменять иконки на более светлые */}
       <div className="button-group-block">
         <div className="left-button">
           <img className="button-group__image" src={IconFavorites} alt="Favorites" />

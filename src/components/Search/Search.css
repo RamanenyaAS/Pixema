@@ -1,0 +1,24 @@
+.search__input {
+  width: 1184px;
+  height: 56px;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  background-color: #323537;
+  color: white;
+  padding-left: 20px;
+}
+.search__image {
+  top: 6px;
+  right: 40px;
+  position: relative;
+}
+.search__input:focus{
+  border: 2px solid #7B61FF;
+}
+.search__input:disabled::placeholder{
+  color: #AFB2B6;
+}
+.search__input:disabled{
+  background-color: #80858B;
+}

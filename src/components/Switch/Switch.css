@@ -54,6 +54,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-input:disabled{
-  background-color: #0058c4;
+input:disabled + .slider{
+  background-color: #AFB2B6;
+}
+input:disabled:active + .slider{
+  background-color: #7B61FF;
 }
