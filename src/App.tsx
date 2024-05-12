@@ -5,9 +5,13 @@ import Input from './components/Input/Input';
 import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Switch from './components/Switch/Switch';
 import Search from './components/Search/Search';
-import { Link } from 'react-router-dom';
-import IconFavorite from "./images/IconFavorites.svg"
+import Link from './components/Link/Link';
 import User from './components/User/User';
+
+import IconHome from "./images/IconHome.svg"
+import IconSetting from "./images/IconSetting.svg"
+import IconTrends from "./images/IconTrends.svg"
+
 
 function App() {
   return (
@@ -24,8 +28,10 @@ function App() {
         <Switch isDisabled={true}></Switch>
         <Search isDisabled={false}></Search>
         <Search isDisabled={true}></Search>
-        {/* <Link title="Home" src={IconFavorite}></Link> */}
         <User username="User name"></User>
+        <Link title="Home" src={IconHome} isDisabled={false}></Link>
+        <Link title="Setting" src={IconSetting} isDisabled={true}></Link>
+        <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
       </div>
     </>
   );

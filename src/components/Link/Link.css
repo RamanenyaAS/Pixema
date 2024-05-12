@@ -1,9 +1,14 @@
 .link-block{
-
+  display: flex;
+  width: 93px;
+  gap: 20px;
+  padding-bottom: 40px;
 }
 .link-block__image{
 
 }
 .link-block__title{
   color: #80858B;
+  font-size: 18px;
+  font-weight: 600;
 }

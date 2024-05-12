@@ -1,5 +1,6 @@
 .user-block{
   display: flex;
+  position: relative;
   width: 264px;
   height: 56px;
   align-items: center;
@@ -22,5 +23,29 @@
   font-size: 16px;
 }
 .user-block__image{
-  
+  position: absolute;
+  right: 0;
+}
+.drop-down-list{
+  position: absolute;
+  width: 267px;
+  height: 112px;
+  background-color: #242426;
+  border-radius: 10px;
+  font-family: "Exo 2", sans-serif;
+  font-weight:500;
+  font-size: 16px;
+  margin-top: 24px;
+}
+.drop-down-block:first-child{
+  border-bottom: 1px solid #323537;
+}
+.drop-down-block__text{
+  color: white;
+}
+.drop-down-block__logOut{
+  color: #7B61FF;
+}
+.drop-down-block__logOut, .drop-down-block__text{
+  padding: 15px 20px;
 }

@@ -1,4 +1,6 @@
-function Link({title, src} : {title: string, src: any}) {
+import "./Link.css"
+
+function Link({title, src, isDisabled} : {title: string, src: string, isDisabled:boolean}) {
   return (
     <>
       <div className="link-block">

@@ -1,14 +1,20 @@
+import { useState } from "react";
 import "./Tabs.css"
 
 function Tabs() {
-  const changeTab= () =>{
-    
+  const [activeTab, setActiveTab] = useState("first")
+  const changeTab = () => {
+    if (activeTab === "first") {
+      setActiveTab("second");
+    } else {
+      setActiveTab("first");
+    }
   }
-  return ( 
+  return (
     <>
 
     </>
-   );
+  );
 }
 
 export default Tabs;
