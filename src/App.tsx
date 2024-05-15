@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Button from './components/Button/Button';
 import Input from './components/Input/Input';
@@ -11,9 +11,12 @@ import User from './components/User/User';
 import IconHome from "./images/IconHome.svg"
 import IconSetting from "./images/IconSetting.svg"
 import IconTrends from "./images/IconTrends.svg"
-
+import Select from './components/Select/Select';
+import Card from './components/Card/Card';
 
 function App() {
+  
+ 
   return (
     <>
       <div className="background">  
@@ -32,6 +35,8 @@ function App() {
         <Link title="Home" src={IconHome} isDisabled={false}></Link>
         <Link title="Setting" src={IconSetting} isDisabled={true}></Link>
         <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
+        <Select></Select>
+        <Card text="Wonder Woman: 1984"></Card>
       </div>
     </>
   );

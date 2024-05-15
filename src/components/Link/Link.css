@@ -4,11 +4,17 @@
   gap: 20px;
   padding-bottom: 40px;
 }
-.link-block__image{
-
+.link-block__image:hover{
+  fill: #7B61FF;
 }
 .link-block__title{
   color: #80858B;
   font-size: 18px;
   font-weight: 600;
+}
+.link-block__title:hover{
+  color: #917CFF;
+}
+.link-block__title:active{
+  color: #7B61FF;
 }

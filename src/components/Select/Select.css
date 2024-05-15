@@ -1,0 +1,26 @@
+.select {
+  width: 438px;
+  height: 56px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: var(--Background-Colors-Graphite, #323537);
+  color: var(--System-Colors-Secondary, #80858B);
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+}
+.select:active{
+  border: 2px solid var(--System-Colors-Primary, #7B61FF);
+}
+.select:focus{
+  outline: none;
+}
+.select__option {
+  height: 56px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border-bottom: 1px solid var(--Background-Colors-Dark, #242426);;
+}
+.select__option:hover{
+  color: #7B61FF;
+}
