@@ -3,9 +3,10 @@
   width: 93px;
   gap: 20px;
   padding-bottom: 40px;
+  cursor: pointer;
 }
-.link-block__image:hover{
-  fill: #7B61FF;
+.link-block__image{
+  padding-right: 20px;
 }
 .link-block__title{
   color: #80858B;
