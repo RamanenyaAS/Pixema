@@ -9,7 +9,6 @@ function MainPage() {
     <>
       <div className="container">
         <img className="logo" src={IconLogo} alt="Pixema logo" />
-        
       </div>
     </>
    );

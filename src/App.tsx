@@ -13,6 +13,7 @@ import IconSetting from "./images/IconSetting.svg"
 import IconTrends from "./images/IconTrends.svg"
 import Select from './components/Select/Select';
 import Card from './components/Card/Card';
+import MainPage from './pages/MainPage/MainPage';
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <div className="background">  
-        <Button text='Primary' type='button-primary' isDisabled={false}></Button>
+        {/* <Button text='Primary' type='button-primary' isDisabled={false}></Button>
         <Button text='Primary' type='button-primary' isDisabled={true}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={false}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={true}></Button>
@@ -36,7 +37,8 @@ function App() {
         <Link title="Setting" src={IconSetting} isDisabled={true}></Link>
         <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
         <Select></Select>
-        <Card text="Wonder Woman: 1984"></Card>
+        <Card text="Wonder Woman: 1984"></Card> */}
+        <MainPage></MainPage>
       </div>
     </>
   );

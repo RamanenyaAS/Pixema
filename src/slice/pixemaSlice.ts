@@ -1,21 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const movieKey = "a705d9d9";
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzY1M2M1ZmMwM2JlM2RiMGRhZjY1YjEyYzYyMzRiOSIsInN1YiI6IjY2MmZmYmE5YTgwNjczMDEyOGU5ODdhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zWGVn74TYLun9VrPNjfhgY1wtpY8Smy9o7AJi8SvumI'
-  }
-};
-
-export const fetchBlog = createAsyncThunk(
-  'pixema/fetchBlog',
-  async function (_, { rejectWithValue }) {
+export const fetchMovies = createAsyncThunk(
+  'pixema/fetchMovies',
+  async function ({filmTitle, page} : {filmTitle: string, page: number | string}, { rejectWithValue }) {
     try {
-      const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc", options);
+      const response = await fetch(`https://www.omdbapi.com/?apikey=${movieKey}&s=${filmTitle}&page=${page}`);
       if (!response.ok) {
-        throw new Error("ERROR")
+        throw new Error("Something went wrong")
       }
       const data = await response.json();
       return data;
@@ -29,7 +22,7 @@ export const fetchBlog = createAsyncThunk(
 export const pixemaSlice = createSlice({
   name: "pixema",
   initialState: {
-    posts: [],
+    movies: [],
     favorites: [],
     status: null,
     error: null,
@@ -46,16 +39,15 @@ export const pixemaSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    return builder.addCase(fetchBlog.pending, (state: any) => {
+    return builder.addCase(fetchMovies.pending, (state: any) => {
       state.status = "pending";
       state.error = null;
     }),
-      builder.addCase(fetchBlog.fulfilled, (state: any, { payload }: { payload: any }) => {
+      builder.addCase(fetchMovies.fulfilled, (state: any, { payload }: { payload: any }) => {
         state.status = "fulfilled";
-        state.posts = payload.results;
-        console.log(state.posts)
+        state.movies = payload.results;
       }),
-      builder.addCase(fetchBlog.rejected, (state: any, { payload }: { payload: any }) => {
+      builder.addCase(fetchMovies.rejected, (state: any, { payload }: { payload: any }) => {
         state.status = "rejected";
         state.error = payload;
       })
