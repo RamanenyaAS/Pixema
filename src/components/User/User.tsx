@@ -19,7 +19,7 @@ function User({ username }: { username: string }) {
         <div className="user-block__initial">{initial}</div>
         <div className="user-block__name">{username}</div>
         <img className="user-block__image" src={ArrowDown} alt="Arrow Down" onClick={toggleDropdown} />
-      </div>
+      
       {isOpen &&
         <div className="drop-down-list">
           <div className="drop-down-block">
@@ -30,7 +30,7 @@ function User({ username }: { username: string }) {
           </div>
         </div>
       }
-
+</div>
     </>
   );
 }

@@ -14,13 +14,14 @@ import IconTrends from "./images/IconTrends.svg"
 import Select from './components/Select/Select';
 import Card from './components/Card/Card';
 import MainPage from './pages/MainPage/MainPage';
+import Spinner from './components/Spinner/Spinner';
 
 function App() {
-  
- 
+
+
   return (
     <>
-      <div className="background">  
+      <div className="background">
         {/* <Button text='Primary' type='button-primary' isDisabled={false}></Button>
         <Button text='Primary' type='button-primary' isDisabled={true}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={false}></Button>
@@ -39,6 +40,7 @@ function App() {
         <Select></Select>
         <Card text="Wonder Woman: 1984"></Card> */}
         <MainPage></MainPage>
+        {/* <Spinner></Spinner> */}
       </div>
     </>
   );

@@ -1,10 +1,12 @@
-.container {}
+.container {
+  display: flex;
+}
 
 .aside {
   display: flex;
   flex-direction: column;
   width: 360px;
-  height: 95vh;
+  min-height: 95vh;
   padding: 48px 0px 0px 64px;
   position: relative;
 }
@@ -25,4 +27,14 @@
   font-weight: 500;
   position: absolute;
   bottom: 64px;
+}
+.header-block{
+  display: flex;
+  padding-top: 40px;
+}
+.movie-block{
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 56px 0px 64px 0px;
 }
