@@ -24,6 +24,7 @@ export interface IMovie {
 
 export interface IInitialState {
   movies: [] | IMovie[],
+  oneMovie: [] | IMovie[],
   favorites: [] | IMovie[],
   status: null | string,
   error: null | string,
