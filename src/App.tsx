@@ -15,13 +15,22 @@ import Select from './components/Select/Select';
 import Card from './components/Card/Card';
 import MainPage from './pages/MainPage/MainPage';
 import Spinner from './components/Spinner/Spinner';
+import SelectedMoviePage from './pages/SelectedMoviePage/SelectedMoviePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 
 
   return (
     <>
+    <BrowserRouter>
       <div className="background">
+        <Routes>
+          <Route path="/" element={<MainPage></MainPage>}></Route>
+          <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
+        </Routes>
+      </div>
+      </BrowserRouter>
         {/* <Button text='Primary' type='button-primary' isDisabled={false}></Button>
         <Button text='Primary' type='button-primary' isDisabled={true}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={false}></Button>
@@ -39,9 +48,9 @@ function App() {
         <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
         <Select></Select>
         <Card text="Wonder Woman: 1984"></Card> */}
-        <MainPage></MainPage>
+        {/* <MainPage></MainPage> */}
         {/* <Spinner></Spinner> */}
-      </div>
+        {/* <SelectedMoviePage></SelectedMoviePage> */}
     </>
   );
 }

@@ -100,7 +100,7 @@ function MainPage() {
               <div className="movie-block">
                 {films.map((movie: IMovie) => (
                   // key наверное стоит исправить, думаю он как то не так работает
-                  <Card key={movie.id} title={movie.Title} poster={movie.Poster}></Card>
+                  <Card key={movie.imdbID} movie={movie} ></Card>
                 ))}
               </div>
             </> : null}
