@@ -20,6 +20,7 @@ function Search({isDisabled} : {isDisabled: boolean}) {
     if(event.key === "Enter"){
       navigate("/search");
       dispatch(searchResult({text: searchText, page: 1}))
+      setSearchText("");
     }
   }
   

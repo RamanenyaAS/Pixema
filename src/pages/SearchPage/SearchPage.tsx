@@ -18,9 +18,9 @@ function SearchPage() {
     <>
       {status === "pending" ? <Spinner></Spinner> : null}
       {data == null ? <h1>Введите запрос</h1> : null}
-      {/* {data.totalResults === "False" ? <h1>Too many results</h1> : null} */}
+      {data.totalResults === "False" ? <h1>Too many results</h1> : null}
       {(data !== null && data.totalResults !== undefined && Number(data.totalResults) === 0 ? <h1>not found</h1> : null)}
-      {status === "fulfilled" && data !== null && data.Search !== null ?
+      {status === "fulfilled" && data !== null && Array.isArray(data.Search) ?
         <>
           <div className="movie-block">
             {data.Search.map((movie: IMovie) => (
