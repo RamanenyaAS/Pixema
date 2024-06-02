@@ -22,12 +22,16 @@ export interface IMovie {
   imdbID: string
 }
 
+export interface ISearchResultPosts{
+
+}
 export interface IInitialState {
   movies: [] | IMovie[],
   oneMovie: [] | IMovie[],
   favorites: [] | IMovie[],
   status: null | string,
   error: null | string,
+  searchResultMovies: IMovie[] | null
 }
 
 // что то непонятное

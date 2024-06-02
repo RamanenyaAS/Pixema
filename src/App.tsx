@@ -18,6 +18,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aside from './components/Aside/Aside';
 import Header from './components/Header/Header';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import SearchPage from './pages/SearchPage/SearchPage';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/" element={<MainPage></MainPage>}></Route>
                 <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
                 <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+                <Route path='/search' element={<SearchPage></SearchPage>}></Route>
               </Routes>
             </div>
           </div>

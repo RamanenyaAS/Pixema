@@ -31,8 +31,10 @@ function SelectedMoviePage() {
   if (!selectedMovie) {
     <Link to={"/*"}></Link>
   }
-  const recommendations = films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4);
-
+  // const recommendations = films && films.length > 0 ? films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4) : [];
+  const recommendations = films && films.length > 0
+    ? films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4)
+    : [];
   console.log(selectedMovie)
   return (
     <>
@@ -50,7 +52,9 @@ function SelectedMoviePage() {
               <ButtonGroup></ButtonGroup>
             </div>
             <div className="selected-block">
-              <div className="movie-genre">{selectedMovie.Genre.replace(new RegExp(",", "g"), " ● ")}</div>
+              <div className="movie-genre">
+                {selectedMovie.Genre && selectedMovie.Genre.replace(new RegExp(",", "g"), " ● ")}
+                </div>
               <div className="movie-title">{selectedMovie.Title}</div>
               <div className="rating-block">
                 {selectedMovie.Ratings && selectedMovie.Ratings[1] && (

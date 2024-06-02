@@ -80,7 +80,7 @@ function MainPage() {
       {status === "fulfilled" ?
         <>
           <div className="movie-block">
-            {films.map((movie: IMovie) => (
+            {films && films.map((movie: IMovie) => (
               <Card key={movie.imdbID} movie={movie} ></Card>
             ))}
           </div>

@@ -38,6 +38,22 @@ export const fetchOneMovie = createAsyncThunk(
 )
 // https://www.omdbapi.com/?apikey=113df6aa&i=tt2404311
 
+export const searchResult = createAsyncThunk(
+  'pixema/fetchSearchResult',
+  async function ({text,page}: {text: string, page: number}, { rejectWithValue }) {
+    try {
+      const responce = await fetch(`https://www.omdbapi.com/?apikey=${movieKey}&s=${text}&page=${page}`);
+      if (!responce.ok) {
+        throw new Error("ERROR")
+      }
+      const data = await responce.json();
+      return data;
+    }
+    catch (error) {
+      return rejectWithValue((error as Error).message)
+    }
+  }
+)
 
 export const pixemaSlice = createSlice({
   name: "pixema",
@@ -47,6 +63,7 @@ export const pixemaSlice = createSlice({
     favorites: [],
     status: null,
     error: null,
+    searchResultMovies: null
   },
   reducers: {
     addToFavorite: (state: IInitialState, { payload }) => {
@@ -81,6 +98,19 @@ export const pixemaSlice = createSlice({
         state.oneMovie = payload;
       }),
       builder.addCase(fetchOneMovie.rejected, (state: IInitialState, { payload }: { payload: any }) => {
+        state.status = "rejected";
+        state.error = payload;
+      }),
+      builder.addCase(searchResult.pending, (state: IInitialState) => {
+        state.status = "pending";
+        state.error = null;
+      }),
+      builder.addCase(searchResult.fulfilled, (state: IInitialState, { payload }: { payload: any }) => {
+        state.status = "fulfilled";
+        state.searchResultMovies = payload;
+        console.log(payload);
+      }),
+      builder.addCase(searchResult.rejected, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "rejected";
         state.error = payload;
       })
