@@ -78,7 +78,6 @@ export const pixemaSlice = createSlice({
       }),
       builder.addCase(fetchOneMovie.fulfilled, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "fulfilled";
-        console.log(payload)
         state.oneMovie = payload;
       }),
       builder.addCase(fetchOneMovie.rejected, (state: IInitialState, { payload }: { payload: any }) => {

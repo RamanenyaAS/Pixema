@@ -15,10 +15,10 @@ function User({ username }: { username: string }) {
 
   return (
     <>
-      <div className="user-block">
+      <div className="user-block" onClick={toggleDropdown}>
         <div className="user-block__initial">{initial}</div>
         <div className="user-block__name">{username}</div>
-        <img className="user-block__image" src={ArrowDown} alt="Arrow Down" onClick={toggleDropdown} />
+        <img className="user-block__image" src={ArrowDown} alt="Arrow Down"  />
       
       {isOpen &&
         <div className="drop-down-list">

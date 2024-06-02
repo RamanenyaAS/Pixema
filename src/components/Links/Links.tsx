@@ -1,6 +1,6 @@
-import "./Link.css"
+import "./Links.css"
 
-function Link({title, src, isDisabled} : {title: string, src: string, isDisabled:boolean}) {
+function Links({title, src, isDisabled} : {title: string, src: string, isDisabled:boolean}) {
   return (
     <>
       <div className="link-block">
@@ -11,4 +11,4 @@ function Link({title, src, isDisabled} : {title: string, src: string, isDisabled
   );
 }
 
-export default Link;
+export default Links;

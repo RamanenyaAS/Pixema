@@ -1,0 +1,101 @@
+.selected-container {
+  display: flex;
+  width: 90%;
+  gap: 42px;
+  padding: 55px;
+}
+
+.selected-block__image {
+  width: 266px;
+  height: 356px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.movie-genre {
+  color: #AFB2B6;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.movie-title {
+  color: white;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+.rating-block {
+  color: white;
+  display: flex;
+  gap: 28px;
+  padding: 24px 0px 40px 0px;
+}
+
+.movie-rating,
+.movie-duration {
+  font-weight: 600;
+  line-height: 24px;
+  padding: 2px 8px 2px 8px;
+  border-radius: 6px;
+}
+
+.movie-rating:first-child {
+  background-color: #00A340;
+  width: Hug (37px)px;
+  height: Hug (28px)px;
+}
+
+.movie-rating:nth-child(2),
+.movie-duration {
+  background-color: #323537;
+}
+
+.movie-plot {
+  color: white;
+  font-weight: 500;
+  line-height: 24px;
+  padding-bottom: 40px;
+}
+
+.info-block {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.info-left {}
+
+.info-right {}
+
+.info-title {
+  font-weight: 600;
+  line-height: 24px;
+  color: #AFB2B6;
+}
+
+.info-subtitle {
+  color: white;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.info-subtitle,
+.info-title {
+  padding-bottom: 20px;
+}
+
+.selected-block-recommendations {
+  padding-top: 56px;
+}
+
+.recommendations__title {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+}
+.recommendations-block{
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px 64px 0px;
+}

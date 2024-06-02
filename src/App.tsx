@@ -5,33 +5,43 @@ import Input from './components/Input/Input';
 import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Switch from './components/Switch/Switch';
 import Search from './components/Search/Search';
-import Link from './components/Link/Link';
+import Link from './components/Links/Links';
 import User from './components/User/User';
 
-import IconHome from "./images/IconHome.svg"
-import IconSetting from "./images/IconSetting.svg"
-import IconTrends from "./images/IconTrends.svg"
+
 import Select from './components/Select/Select';
 import Card from './components/Card/Card';
 import MainPage from './pages/MainPage/MainPage';
 import Spinner from './components/Spinner/Spinner';
 import SelectedMoviePage from './pages/SelectedMoviePage/SelectedMoviePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Aside from './components/Aside/Aside';
+import Header from './components/Header/Header';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
 
 
   return (
     <>
-    <BrowserRouter>
-      <div className="background">
-        <Routes>
-          <Route path="/" element={<MainPage></MainPage>}></Route>
-          <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
-        </Routes>
-      </div>
+      <BrowserRouter>
+        <div className="background">
+          <div className="container">
+            <Aside></Aside>
+            <div className="main-page-block">
+              <Header></Header>
+              <Routes>
+                <Route path="/" element={<MainPage></MainPage>}></Route>
+                <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
+                <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+              </Routes>
+            </div>
+          </div>
+        </div>
       </BrowserRouter>
-        {/* <Button text='Primary' type='button-primary' isDisabled={false}></Button>
+
+
+      {/* <Button text='Primary' type='button-primary' isDisabled={false}></Button>
         <Button text='Primary' type='button-primary' isDisabled={true}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={false}></Button>
         <Button text='Secondary' type='button-secondary' isDisabled={true}></Button>
@@ -48,9 +58,9 @@ function App() {
         <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
         <Select></Select>
         <Card text="Wonder Woman: 1984"></Card> */}
-        {/* <MainPage></MainPage> */}
-        {/* <Spinner></Spinner> */}
-        {/* <SelectedMoviePage></SelectedMoviePage> */}
+      {/* <MainPage></MainPage> */}
+      {/* <Spinner></Spinner> */}
+      {/* <SelectedMoviePage></SelectedMoviePage> */}
     </>
   );
 }

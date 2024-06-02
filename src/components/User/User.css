@@ -4,6 +4,7 @@
   width: 264px;
   height: 56px;
   align-items: center;
+  cursor: pointer;
 }
 
 .user-block__initial {

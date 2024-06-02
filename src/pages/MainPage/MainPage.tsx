@@ -4,7 +4,7 @@ import IconSetting from "../../images/IconSetting.svg"
 import IconTrends from "../../images/IconTrends.svg"
 import IconFavorites from "../../images/IconFavoritesLight.svg"
 import IconLogo from "../../images/Logo.svg"
-import Link from "../../components/Link/Link"
+import Link from "../../components/Links/Links"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchMovies } from "../../slice/pixemaSlice"
@@ -71,41 +71,20 @@ function MainPage() {
 
   return (
     <>
-      <div className="container">
-        <aside className="aside">
-          <img className="logo" src={IconLogo} alt="Pixema logo" />
-          <Link title="Home" src={IconHome} isDisabled={false}></Link>
-          <Link title="Trends" src={IconTrends} isDisabled={false}></Link>
-          <Link title="Favorites" src={IconFavorites} isDisabled={false}></Link>
-          <Link title="Setting" src={IconSetting} isDisabled={false}></Link>
-          <footer>
-            <div className="copyright">© All Rights Reserved</div>
-          </footer>
-        </aside>
-        <div className="main-page-block">
-          <header className="header">
-            <div className="header-block">
-              <Search isDisabled={false}></Search>
-              <User username="Artem Lapitsky"></User>
-            </div>
-          </header>
-          {status === "pending" ?
-            <>
-              <div className="spinner">
-                <Spinner></Spinner>
-              </div>
-            </> : null}
-          {status === "fulfilled" ?
-            <>
-              <div className="movie-block">
-                {films.map((movie: IMovie) => (
-                  // key наверное стоит исправить, думаю он как то не так работает
-                  <Card key={movie.imdbID} movie={movie} ></Card>
-                ))}
-              </div>
-            </> : null}
-        </div>
-      </div>
+      {status === "pending" ?
+        <>
+          <div className="spinner">
+            <Spinner></Spinner>
+          </div>
+        </> : null}
+      {status === "fulfilled" ?
+        <>
+          <div className="movie-block">
+            {films.map((movie: IMovie) => (
+              <Card key={movie.imdbID} movie={movie} ></Card>
+            ))}
+          </div>
+        </> : null}
     </>
   );
 }
