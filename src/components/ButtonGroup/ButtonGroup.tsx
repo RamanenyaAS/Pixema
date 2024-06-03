@@ -1,15 +1,38 @@
 import "./ButtonGroup.css"
 import IconFavorites from "../../images/IconFavorites.svg"
 import IconShare from "../../images/IconShare.svg"
+import { useState } from "react";
+import { IMovie } from "../../types/interfaces";
 
 
-function ButtonGroup() {
+function ButtonGroup({ movie }: { movie: IMovie }) {
+
+  const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
+
+  // Функция для обработки нажатия на кнопку добавления в избранное
+  const handleAddToFavorites = () => {
+    const storedMovie = localStorage.getItem("movies");
+    let favoritesMovie = storedMovie ? JSON.parse(storedMovie) : [];
+    // Проверяем, есть ли уже фильм в списке избранных
+    const isAlreadyInFavorites = favoritesMovie.some(
+      (favMovie: IMovie) => favMovie.imdbID === movie.imdbID
+    );
+
+    if (isAlreadyInFavorites) {
+      setIsAlreadyAdded(true);
+      alert("Фильм уже добавлен в избранное")
+    } else {
+      favoritesMovie.push(movie);
+      localStorage.setItem("movies", JSON.stringify(favoritesMovie));
+    }
+  };
+
+
   return (
     <>
-    {/* при hover поменять иконки на более светлые */}
       <div className="button-group-block">
-        <div className="left-button">
-          <img className="button-group__image" src={IconFavorites} alt="Favorites" />
+        <div className="left-button" onClick={handleAddToFavorites}>
+          {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavorites} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />} 
         </div>
         <div className="right-button">
           <img className="button-group__image" src={IconShare} alt="Share" />

@@ -1,24 +1,14 @@
-import React, { useEffect } from 'react';
 import './App.css';
-import Button from './components/Button/Button';
-import Input from './components/Input/Input';
-import ButtonGroup from './components/ButtonGroup/ButtonGroup';
-import Switch from './components/Switch/Switch';
-import Search from './components/Search/Search';
-import Link from './components/Links/Links';
-import User from './components/User/User';
-
-
-import Select from './components/Select/Select';
-import Card from './components/Card/Card';
 import MainPage from './pages/MainPage/MainPage';
-import Spinner from './components/Spinner/Spinner';
 import SelectedMoviePage from './pages/SelectedMoviePage/SelectedMoviePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aside from './components/Aside/Aside';
 import Header from './components/Header/Header';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
+import SignInFormPage from './pages/SignInFormPage/SignInFormPage';
+import SignUpFormPage from './pages/SignUpFormPage/SignUpFormPage';
 
 function App() {
 
@@ -36,6 +26,9 @@ function App() {
                 <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
                 <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
                 <Route path='/search' element={<SearchPage></SearchPage>}></Route>
+                <Route path='/favorites' element={<FavoritesPage></FavoritesPage>}></Route>
+                <Route path='/signIn' element={<SignInFormPage></SignInFormPage>}></Route>
+                <Route path='/signUp' element={<SignUpFormPage></SignUpFormPage>}></Route>
               </Routes>
             </div>
           </div>

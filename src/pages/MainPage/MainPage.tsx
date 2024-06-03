@@ -1,18 +1,10 @@
 import "./MainPage.css"
-import IconHome from "../../images/IconHome.svg"
-import IconSetting from "../../images/IconSetting.svg"
-import IconTrends from "../../images/IconTrends.svg"
-import IconFavorites from "../../images/IconFavoritesLight.svg"
-import IconLogo from "../../images/Logo.svg"
-import Link from "../../components/Links/Links"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchMovies } from "../../slice/pixemaSlice"
 import Card from "../../components/Card/Card"
 import Spinner from "../../components/Spinner/Spinner"
 import { IInitialState, IMovie } from "../../types/interfaces"
-import Search from "../../components/Search/Search"
-import User from "../../components/User/User"
 
 function MainPage() {
 

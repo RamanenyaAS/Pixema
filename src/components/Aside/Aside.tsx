@@ -11,18 +11,20 @@ function Aside() {
   return (
     <>
       <aside className="aside">
-      <Link to={"/"} className="link">
-        <img className="logo" src={IconLogo} alt="Pixema logo" />
+        <Link to={"/"} className="link">
+          <img className="logo" src={IconLogo} alt="Pixema logo" />
         </Link>
         <Link to={"/"} className="link">
           <Links title="Home" src={IconHome} isDisabled={false}></Links>
         </Link>
         <Links title="Trends" src={IconTrends} isDisabled={false}></Links>
-        <Links title="Favorites" src={IconFavorites} isDisabled={false}></Links>
-        <Links title="Setting" src={IconSetting} isDisabled={false}></Links>
-        <footer>
-          <div className="copyright">© All Rights Reserved</div>
-        </footer>
+        <Link to={"/favorites"} className="link">
+          <Links title="Favorites" src={IconFavorites} isDisabled={false}></Links>
+        </Link>
+          <Links title="Setting" src={IconSetting} isDisabled={false}></Links>
+          <footer>
+            <div className="copyright">© All Rights Reserved</div>
+          </footer>
       </aside>
     </>
   );

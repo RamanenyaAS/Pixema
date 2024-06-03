@@ -10,7 +10,7 @@ function ErrorPage() {
   return (
     <>
       <div className="error-container">
-        <img src={ErrorImage} alt="404 Error Image" />
+        <img className="error-image" src={ErrorImage} alt="404 Error Image" />
         <div className="error-text">We can’t find the page you are looking for</div>
         <Link to={"/"}>
           <Button text='Go Home' type='button-primary' isDisabled={false}></Button>

@@ -21,7 +21,7 @@ function SelectedMoviePage() {
       dispatch(fetchOneMovie(movieId));
     }
   }, [movieId]);
- 
+
   useEffect(() => {
     if (selectedMovie && selectedMovie.Title) {
       const filmTitle = selectedMovie.Title.slice(0, 5);
@@ -49,12 +49,12 @@ function SelectedMoviePage() {
           <>
             <div className="selected-block">
               <img className="selected-block__image" src={selectedMovie.Poster} alt="Movie Poster" />
-              <ButtonGroup></ButtonGroup>
+              <ButtonGroup movie={selectedMovie}></ButtonGroup>
             </div>
             <div className="selected-block">
               <div className="movie-genre">
                 {selectedMovie.Genre && selectedMovie.Genre.replace(new RegExp(",", "g"), " ● ")}
-                </div>
+              </div>
               <div className="movie-title">{selectedMovie.Title}</div>
               <div className="rating-block">
                 {selectedMovie.Ratings && selectedMovie.Ratings[1] && (

@@ -8,11 +8,27 @@ import { Link } from "react-router-dom";
 
 function SearchPage() {
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch()<any>;
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const data: any = useSelector((state: IInitialState) => state.searchResultMovies);
   const status = useSelector((state: IInitialState) => state.status)
   console.log(data.Search)
+
+
+  const handleSearch = () => {
+    if (searchTerm) {
+      dispatch(searchResult({text: searchTerm, page}));
+    }
+  };
+
+  // Выполнение поиска при монтировании компонента, если есть searchTerm
+  useEffect(() => {
+    if (searchTerm) {
+      dispatch(searchResult({text:searchTerm, page}));
+    }
+  }, [dispatch, searchTerm]);
+
 
   return (
     <>

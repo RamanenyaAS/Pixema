@@ -1,0 +1,17 @@
+.favorites-empty-block{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.favorites-empty-block__title{
+  font-size: 50px;
+  color: white;
+  font-weight: 600;
+}
+.favorites-empty-block__subtitle{
+  font-size: 40px;
+  color: white;
+  font-weight: 500;
+  padding-bottom: 5%;
+}
