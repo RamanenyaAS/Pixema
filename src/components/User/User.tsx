@@ -15,9 +15,8 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
     if (onLogOut) {
       onLogOut();
     }
-    setIsOpen(false); // Закрыть выпадающий список после выхода
+    setIsOpen(false);
   };
-
 
   const handleSignIn = () => {
     if (onSignIn) {
@@ -34,7 +33,6 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
         <div className="user-block__initial">{initial}</div>
         <div className="user-block__name">{username}</div>
         <img className="user-block__image" src={ArrowDown} alt="Arrow Down" />
-
         {isOpen &&
           <div className="drop-down-list">
             <div className="drop-down-block">

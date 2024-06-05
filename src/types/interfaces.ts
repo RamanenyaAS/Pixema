@@ -13,16 +13,32 @@ export interface IInput {
   isDisabled: boolean
 }
 
+export interface IRating {
+  Source: string;
+  Value: string;
+}
 export interface IMovie {
   id: number,
   Poster: string,
   Title: string,
   Type: string,
   Year: string,
-  imdbID: string
+  imdbID: string,
+  imdbRating: string,
+  Writer: string,
+  Director: string,
+  Actors: string,
+  Production: string,
+  Country: string,
+  BoxOffice: string,
+  Released: string,
+  Plot: string,
+  Runtime: string,
+  Ratings: IRating[],
+  Genre: string
 }
 
-export interface ISearchResultPosts{
+export interface ISearchResultPosts {
 
 }
 export interface IInitialState {

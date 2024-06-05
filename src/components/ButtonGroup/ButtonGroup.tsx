@@ -4,9 +4,7 @@ import IconShare from "../../images/IconShare.svg"
 import { useState } from "react";
 import { IMovie } from "../../types/interfaces";
 
-
 import {
-  FacebookShareCount,
   FacebookShareButton,
   WhatsappShareButton,
   EmailShareButton,
@@ -42,8 +40,6 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
   };
 
   const toggleDropdown = () => {
-    console.log('toggleDropdown called'); // Логирование вызова функции
-
     setIsOpen(!isOpen);
   }
 
@@ -58,18 +54,18 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
         </div>
         {isOpen &&
           <div className="link-list">
-              <FacebookShareButton url={shareUrl} >
-                <FacebookIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></FacebookIcon>
-              </FacebookShareButton>
-              <TelegramShareButton url={shareUrl}>
-                <TelegramIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></TelegramIcon>
-              </TelegramShareButton>
-              <WhatsappShareButton url={shareUrl}>
-                <WhatsappIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></WhatsappIcon>
-              </WhatsappShareButton>
-              <EmailShareButton url={shareUrl}>
-                <EmailIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></EmailIcon>
-              </EmailShareButton>
+            <FacebookShareButton url={shareUrl} >
+              <FacebookIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></FacebookIcon>
+            </FacebookShareButton>
+            <TelegramShareButton url={shareUrl}>
+              <TelegramIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></TelegramIcon>
+            </TelegramShareButton>
+            <WhatsappShareButton url={shareUrl}>
+              <WhatsappIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></WhatsappIcon>
+            </WhatsappShareButton>
+            <EmailShareButton url={shareUrl}>
+              <EmailIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></EmailIcon>
+            </EmailShareButton>
           </div>
         }
       </div >

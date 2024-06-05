@@ -12,7 +12,7 @@ function SelectedMoviePage() {
 
   const { movieId } = useParams<string>();
   const dispatch = useDispatch()<any>;
-  const selectedMovie: IMovie[] | any = useSelector((state: IInitialState) => state.oneMovie);
+  const selectedMovie: IMovie | any = useSelector((state: IInitialState) => state.oneMovie);
   const status = useSelector((state: IInitialState) => state.status);
   const films = useSelector((state: IInitialState) => state.movies);
   const page = 1;
@@ -31,7 +31,6 @@ function SelectedMoviePage() {
   if (!selectedMovie) {
     <Link to={"/*"}></Link>
   }
-  // const recommendations = films && films.length > 0 ? films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4) : [];
   const recommendations = films && films.length > 0
     ? films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4)
     : [];

@@ -5,8 +5,6 @@ import { IInitialState, IMovie } from "../../types/interfaces";
 import { searchResult } from "../../slice/pixemaSlice";
 import Card from "../../components/Card/Card";
 import Spinner from "../../components/Spinner/Spinner";
-import { Link } from "react-router-dom";
-
 function SearchPage() {
   const dispatch = useDispatch()<any>;
   const [searchTerm, setSearchTerm] = useState<string>("");

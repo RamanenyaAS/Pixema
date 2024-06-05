@@ -1,6 +1,5 @@
 import "./Search.css"
 import IconFilter from "../../images/IconFilter.svg"
-import IconFilterActive from "../../images/IconFilterActive.svg"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
