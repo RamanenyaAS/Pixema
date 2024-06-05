@@ -37,8 +37,8 @@ function FavoritesPage() {
       {status === "fulfilled" && movies.length === 0 ?
         <>
           <div className="favorites-empty-block">
-            <h1 className="favorites-empty-block__title">Список пуст</h1>
-            <div className="favorites-empty-block__subtitle">Выбирите понравившийся фильм и добавьте его в избранное</div>
+            <h1 className="favorites-empty-block__title">Favorites list is empty</h1>
+            <div className="favorites-empty-block__subtitle">Select the movie you like and add it to your favorites</div>
             <Link to={"/"}>
               <Button text='Go Home' type='button-primary' isDisabled={false}></Button>
             </Link>

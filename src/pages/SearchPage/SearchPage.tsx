@@ -31,18 +31,18 @@ function SearchPage() {
       {status === "pending" && <Spinner />}
       {!data &&
         <div className="error-box">
-          <h1 className="error-box__text">Введите запрос</h1>
+          <h1 className="error-box__text">Enter your request</h1>
         </div>
       }
       {data && data.Response === "False" && data.Error === "Too many results." &&
         <div className="error-box">
 
-          <h1 className="error-box__text">Слишком много результатов, введите более конкретный запрос</h1>
+          <h1 className="error-box__text">Too many results, please enter a more specific query</h1>
         </div>
       }
       {data && data.Response === "False" && data.Error === "Movie not found!" &&
         <div className="error-box">
-          <h1 className="error-box__text">Фильм не найден</h1>
+          <h1 className="error-box__text">Movie not found</h1>
         </div>
       }
       {status === "fulfilled" && data && data.Search && (

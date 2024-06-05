@@ -18,7 +18,7 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
 
     if (isAlreadyInFavorites) {
       setIsAlreadyAdded(true);
-      alert("Фильм уже добавлен в избранное")
+      alert("The movie has already been added to your favorites")
     } else {
       favoritesMovie.push(movie);
       localStorage.setItem("movies", JSON.stringify(favoritesMovie));
