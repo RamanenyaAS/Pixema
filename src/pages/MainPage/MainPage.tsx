@@ -12,7 +12,6 @@ function MainPage() {
   const [page, setPage] = useState<number>(1);
 
   const films = useSelector((state: IInitialState) => state.movies);
-  console.log(films);
   const status = useSelector((state: IInitialState) => state.status)
 
   const moviesWords = [

@@ -20,7 +20,6 @@ function Input({ title, type, placeholder, autocomplete, onChange, isDisabled }:
   return (
     <>
       <div className="input__title">{title}</div>
-      {/* починить border. когда нет ошибки style перекрывает стиль для :focus и фиолетовая рамка не отображается */}
       <input className="input" type={type} placeholder={placeholder} autoComplete={autocomplete} onChange={handleChange} style={{ border: hasError ? "1px solid red" : "none" }} disabled={isDisabled}></input>
       {hasError === true ? <div className="input__error">Error text</div> : null}
     </>

@@ -3,9 +3,6 @@ import ErrorImage from "../../images/Error.svg"
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 
-
-// ДОДЕЛАТЬ, найти нормальную фото + стили
-
 function ErrorPage() {
   return (
     <>

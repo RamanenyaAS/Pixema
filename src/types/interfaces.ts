@@ -34,7 +34,6 @@ export interface IInitialState {
   searchResultMovies: IMovie[] | null
 }
 
-// что то непонятное
 // export interface IPayload {
 //   Response: string,
 //   Search: [] | IMovie[],

@@ -4,8 +4,6 @@ import { IMovie } from "../../types/interfaces";
 
 function Card({ movie }: { movie: IMovie }) {
 
-
-
   return (
     <>
       <div className="card">

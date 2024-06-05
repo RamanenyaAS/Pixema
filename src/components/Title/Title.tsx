@@ -1,5 +1,4 @@
 import "./Title.css"
-// {text, className} : {text: string, className: string}
 function Title({children} : {children:string}) {
   return ( 
     <>

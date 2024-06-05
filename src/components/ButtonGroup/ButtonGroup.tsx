@@ -9,11 +9,9 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
 
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
 
-  // Функция для обработки нажатия на кнопку добавления в избранное
   const handleAddToFavorites = () => {
     const storedMovie = localStorage.getItem("movies");
     let favoritesMovie = storedMovie ? JSON.parse(storedMovie) : [];
-    // Проверяем, есть ли уже фильм в списке избранных
     const isAlreadyInFavorites = favoritesMovie.some(
       (favMovie: IMovie) => favMovie.imdbID === movie.imdbID
     );

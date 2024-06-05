@@ -35,7 +35,6 @@ function SelectedMoviePage() {
   const recommendations = films && films.length > 0
     ? films.filter((movie: IMovie) => movie.imdbID !== selectedMovie.imdbID).slice(0, 4)
     : [];
-  console.log(selectedMovie)
   return (
     <>
       <div className="selected-container">

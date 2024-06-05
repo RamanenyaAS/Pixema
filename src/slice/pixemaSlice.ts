@@ -36,7 +36,6 @@ export const fetchOneMovie = createAsyncThunk(
     }
   }
 )
-// https://www.omdbapi.com/?apikey=113df6aa&i=tt2404311
 
 export const searchResult = createAsyncThunk(
   'pixema/fetchSearchResult',
@@ -108,7 +107,6 @@ export const pixemaSlice = createSlice({
       builder.addCase(searchResult.fulfilled, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "fulfilled";
         state.searchResultMovies = payload;
-        console.log(payload);
       }),
       builder.addCase(searchResult.rejected, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "rejected";
