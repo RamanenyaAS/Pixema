@@ -1,8 +1,11 @@
-.button-group-block{
+.button-group-block {
   display: flex;
   align-items: center;
+  position: relative;
 }
-.left-button, .right-button{
+
+.left-button,
+.right-button {
   width: 130px;
   height: 56px;
   justify-content: center;
@@ -11,14 +14,35 @@
   cursor: pointer;
   background-color: #323537;
 }
-.left-button{
+
+.left-button {
   border-radius: 10px 0px 0px 10px;
   border-right: 1px solid black;
 }
-.right-button{
+
+.right-button {
   border-radius: 0px 10px 10px 0px;
 }
-.button-group__image{
+
+.button-group__image {
   width: 24px;
   height: 24px;
+}
+
+.link-list {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 267px;
+  height: 60px;
+  background-color: #242426;
+  border-radius: 10px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  top: 80px;
+  z-index: 999;
+}
+.link-icon{
+  padding: 5px;
 }

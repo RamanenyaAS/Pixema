@@ -43,9 +43,9 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
             <div className="drop-down-block">
               {onLogOut ?
                 <Link to={"/signIn"} className="link">
-                  <div className="drop-down-block__logOut" onClick={handleLogOut}>Log Out</div>
+                  <div className="drop-down-block__item" onClick={handleLogOut}>Log Out</div>
                 </Link> :
-                <div className="drop-down-block__logOut" onClick={handleSignIn}>Sign In</div>
+                <div className="drop-down-block__item" onClick={handleSignIn}>Sign In</div>
               }
             </div>
           </div>

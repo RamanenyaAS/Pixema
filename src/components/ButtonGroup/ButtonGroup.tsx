@@ -5,9 +5,25 @@ import { useState } from "react";
 import { IMovie } from "../../types/interfaces";
 
 
+import {
+  FacebookShareCount,
+  FacebookShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  WhatsappIcon,
+  EmailIcon,
+} from "react-share";
+
+
 function ButtonGroup({ movie }: { movie: IMovie }) {
 
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const shareUrl = 'https://www.pakkamarwadi.tk/';
 
   const handleAddToFavorites = () => {
     const storedMovie = localStorage.getItem("movies");
@@ -25,17 +41,38 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
     }
   };
 
+  const toggleDropdown = () => {
+    console.log('toggleDropdown called'); // Логирование вызова функции
+
+    setIsOpen(!isOpen);
+  }
 
   return (
     <>
       <div className="button-group-block">
         <div className="left-button" onClick={handleAddToFavorites}>
-          {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavorites} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />} 
+          {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavorites} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />}
         </div>
-        <div className="right-button">
+        <div className="right-button" onClick={toggleDropdown}>
           <img className="button-group__image" src={IconShare} alt="Share" />
         </div>
-      </div>
+        {isOpen &&
+          <div className="link-list">
+              <FacebookShareButton url={shareUrl} >
+                <FacebookIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></FacebookIcon>
+              </FacebookShareButton>
+              <TelegramShareButton url={shareUrl}>
+                <TelegramIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></TelegramIcon>
+              </TelegramShareButton>
+              <WhatsappShareButton url={shareUrl}>
+                <WhatsappIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></WhatsappIcon>
+              </WhatsappShareButton>
+              <EmailShareButton url={shareUrl}>
+                <EmailIcon className="link-icon" onClick={toggleDropdown} size={40} round={true}></EmailIcon>
+              </EmailShareButton>
+          </div>
+        }
+      </div >
     </>
   );
 }
