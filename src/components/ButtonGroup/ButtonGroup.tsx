@@ -14,6 +14,7 @@ import {
   WhatsappIcon,
   EmailIcon,
 } from "react-share";
+import { useLocation } from "react-router-dom";
 
 
 function ButtonGroup({ movie }: { movie: IMovie }) {
@@ -21,7 +22,8 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
   const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const shareUrl = 'https://www.pakkamarwadi.tk/';
+  const location = useLocation();
+  const shareUrl = `${window.location.origin}${location.pathname}${location.search}${location.hash}`;
 
   const handleAddToFavorites = () => {
     const storedMovie = localStorage.getItem("movies");
