@@ -14,50 +14,56 @@ function MainPage() {
   const films = useSelector((state: IInitialState) => state.movies);
   const status = useSelector((state: IInitialState) => state.status)
 
-  const moviesWords = [
-    "man",
-    "men",
-    "hero",
-    "love",
-    "life",
-    "way",
-    "people",
-    "time",
-    "good",
-    "great",
-    "nice",
-    "wonderful",
-    "beautiful",
-    "club",
-    "city",
-    "new",
-    "die",
-    "book",
-    "gold",
-    "money",
-    "part",
-    "sun",
-    "game",
-    "woman",
-    "house",
-    "boy",
-    "fast",
-    "witch",
-    "night",
-    "dark",
-    "sea",
-    "year",
-    "wedding",
-    "green",
-    "race"
-  ]
+  const [filmTitle] = useState<string>(() => {
+    const moviesWords = [
+      "man",
+      "men",
+      "hero",
+      "love",
+      "life",
+      "way",
+      "people",
+      "time",
+      "good",
+      "great",
+      "nice",
+      "wonderful",
+      "beautiful",
+      "club",
+      "city",
+      "new",
+      "die",
+      "book",
+      "gold",
+      "money",
+      "part",
+      "sun",
+      "game",
+      "woman",
+      "house",
+      "boy",
+      "fast",
+      "witch",
+      "night",
+      "dark",
+      "sea",
+      "year",
+      "wedding",
+      "green",
+      "race"
+    ]
+    return moviesWords[Math.floor(Math.random() * moviesWords.length)];
+  });
 
-  const filmTitle = moviesWords[Math.floor(Math.random() * moviesWords.length)]
 
   useEffect(() => {
     dispatch(fetchMovies({ filmTitle, page }))
   }, [page]);
 
+
+  const fetchMoreMovies = () => {
+    setPage(prevPage => prevPage + 1)
+  }
 
 
   return (
@@ -74,6 +80,9 @@ function MainPage() {
             {films && films.map((movie: IMovie) => (
               <Card key={movie.imdbID} movie={movie} ></Card>
             ))}
+            <div className="pagination-block">
+              <div className="pagination-block__button" onClick={fetchMoreMovies}>Show More</div>
+            </div>
           </div>
         </> : null}
     </>

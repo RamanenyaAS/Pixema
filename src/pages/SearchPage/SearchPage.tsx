@@ -12,17 +12,18 @@ function SearchPage() {
   const data: any = useSelector((state: IInitialState) => state.searchResultMovies);
   const status = useSelector((state: IInitialState) => state.status);
 
-  const handleSearch = () => {
-    if (searchTerm) {
-      dispatch(searchResult({ text: searchTerm, page }));
-    }
-  };
+
 
   useEffect(() => {
     if (searchTerm) {
       dispatch(searchResult({ text: searchTerm, page }));
     }
   }, [dispatch, searchTerm, page]);
+
+  const fetchMoreMovies = () => {
+    setPage(prevPage => prevPage + 1)
+  }
+
 
   return (
     <>
@@ -34,7 +35,6 @@ function SearchPage() {
       }
       {data && data.Response === "False" && data.Error === "Too many results." &&
         <div className="error-box">
-
           <h1 className="error-box__text">Too many results, please enter a more specific query</h1>
         </div>
       }
@@ -48,6 +48,9 @@ function SearchPage() {
           {data.Search.map((movie: IMovie) => (
             <Card key={movie.imdbID} movie={movie} />
           ))}
+          <div className="pagination-block">
+            <div className="pagination-block__button" onClick={fetchMoreMovies}>Show More</div>
+          </div>
         </div>
       )}
     </>

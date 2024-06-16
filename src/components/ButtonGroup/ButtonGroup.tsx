@@ -1,7 +1,8 @@
 import "./ButtonGroup.css"
 import IconFavorites from "../../images/IconFavorites.svg"
+import IconFavoritesActive from "../../images/IconFavoritesLight.svg"
 import IconShare from "../../images/IconShare.svg"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IMovie } from "../../types/interfaces";
 
 import {
@@ -25,6 +26,18 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
   const location = useLocation();
   const shareUrl = `${window.location.origin}${location.pathname}${location.search}${location.hash}`;
 
+  useEffect(() => {
+    const storedMovie = localStorage.getItem("movies");
+    const favoritesMovie = storedMovie ? JSON.parse(storedMovie) : [];
+    const isAlreadyInFavorites = favoritesMovie.some(
+      (favMovie: IMovie) => favMovie.imdbID === movie.imdbID
+    );
+
+    if (isAlreadyInFavorites) {
+      setIsAlreadyAdded(true);
+    }
+  }, [movie.imdbID]);
+
   const handleAddToFavorites = () => {
     const storedMovie = localStorage.getItem("movies");
     let favoritesMovie = storedMovie ? JSON.parse(storedMovie) : [];
@@ -38,6 +51,7 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
     } else {
       favoritesMovie.push(movie);
       localStorage.setItem("movies", JSON.stringify(favoritesMovie));
+      setIsAlreadyAdded(true);
     }
   };
 
@@ -49,7 +63,7 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
     <>
       <div className="button-group-block">
         <div className="left-button" onClick={handleAddToFavorites}>
-          {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavorites} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />}
+          {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavoritesActive} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />}
         </div>
         <div className="right-button" onClick={toggleDropdown}>
           <img className="button-group__image" src={IconShare} alt="Share" />
