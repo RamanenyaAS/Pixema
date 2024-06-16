@@ -18,8 +18,8 @@
 }
 
 .card__image {
-  width: 266px;
-  height: 357px;
+  width: 240px;
+  height: 330px;
   flex-shrink: 0;
   border-radius: 20px;
 }

@@ -17,18 +17,20 @@ function App() {
       <BrowserRouter>
         <div className="background">
           <div className="container">
-            <Aside></Aside>
             <div className="main-page-block">
               <Header></Header>
-              <Routes>
-                <Route path="/" element={<MainPage></MainPage>}></Route>
-                <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
-                <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
-                <Route path='/search' element={<SearchPage></SearchPage>}></Route>
-                <Route path='/favorites' element={<FavoritesPage></FavoritesPage>}></Route>
-                <Route path='/signIn' element={<SignInFormPage></SignInFormPage>}></Route>
-                <Route path='/signUp' element={<SignUpFormPage></SignUpFormPage>}></Route>
-              </Routes>
+              <main className="main">
+                <Aside></Aside>
+                <Routes>
+                  <Route path="/" element={<MainPage></MainPage>}></Route>
+                  <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
+                  <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+                  <Route path='/search' element={<SearchPage></SearchPage>}></Route>
+                  <Route path='/favorites' element={<FavoritesPage></FavoritesPage>}></Route>
+                  <Route path='/signIn' element={<SignInFormPage></SignInFormPage>}></Route>
+                  <Route path='/signUp' element={<SignUpFormPage></SignUpFormPage>}></Route>
+                </Routes>
+              </main>
             </div>
           </div>
         </div>

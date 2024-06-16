@@ -1,16 +1,10 @@
 .aside {
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 300px;
   min-height: 95vh;
   padding: 48px 0px 0px 64px;
   position: relative;
-}
-
-.logo {
-  width: 158px;
-  height: 40px;
-  padding-bottom: 64px;
 }
 
 .copyright {
