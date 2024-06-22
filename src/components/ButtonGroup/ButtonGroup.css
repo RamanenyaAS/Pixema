@@ -43,6 +43,14 @@
   top: 80px;
   z-index: 999;
 }
-.link-icon{
+
+.link-icon {
   padding: 5px;
+}
+
+@media (max-width: 400px) {
+  .left-button,
+  .right-button {
+    width: 100px;
+  }
 }

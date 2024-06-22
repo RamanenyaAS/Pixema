@@ -45,13 +45,13 @@ function SelectedMoviePage() {
           </> : null}
         {status === "fulfilled" ?
           <>
-            <div className="selected-block">
-              <img className="selected-block__image" src={selectedMovie.Poster} alt="Movie Poster" />
+            <div className="poster-block">
+              <img className="poster-block__image" src={selectedMovie.Poster} alt="Movie Poster" />
               <ButtonGroup movie={selectedMovie}></ButtonGroup>
             </div>
             <div className="selected-block">
               <div className="movie-genre">
-                {selectedMovie.Genre && selectedMovie.Genre.replace(new RegExp(",", "g"), " ● ")}
+                {selectedMovie.Genre && selectedMovie.Genre.replace(new RegExp(",", "g"), " • ")}
               </div>
               <div className="movie-title">{selectedMovie.Title}</div>
               <div className="rating-block">

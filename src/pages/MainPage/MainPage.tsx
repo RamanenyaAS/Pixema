@@ -16,6 +16,7 @@ function MainPage() {
 
   const [filmTitle] = useState<string>(() => {
     const moviesWords = [
+      "movie",
       "man",
       "men",
       "hero",

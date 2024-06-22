@@ -1,11 +1,13 @@
 import "./User.css"
 import ArrowDown from "../../images/IconArrowDown.svg"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: () => void, onSignIn?: () => void }) {
 
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -25,6 +27,18 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
     setIsOpen(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   let initial = username.split(" ").reduce(((res, item) => res + item[0]), "").toLocaleUpperCase();
 
   return (
@@ -34,7 +48,7 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
         <div className="user-block__name">{username}</div>
         <img className="user-block__image" src={ArrowDown} alt="Arrow Down" />
         {isOpen &&
-          <div className="drop-down-list">
+          <div ref={dropdownRef} className="drop-down-list">
             <div className="drop-down-block">
               <div className="drop-down-block__text">Edit profile</div>
             </div>

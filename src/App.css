@@ -2,12 +2,15 @@
   background-color: #000000;
   min-height: 100vh;
 }
-.container {
-  display: flex;
-}
 .link{
   text-decoration: none;
 }
 .main{
   display: flex ;
+}
+
+@media (max-width: 1440px){
+  .main{
+    justify-content: center;
+  }
 }

@@ -19,3 +19,11 @@
 .link-block__title:active{
   color: #7B61FF;
 }
+
+@media (max-width: 800px){
+  .link-block{
+    padding-bottom: 10px;
+    padding-left: 20px;
+    gap: 20px;
+  }
+}

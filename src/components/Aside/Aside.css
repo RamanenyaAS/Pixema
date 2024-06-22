@@ -14,3 +14,9 @@
   position: absolute;
   bottom: 64px;
 }
+
+@media (max-width: 800px){
+  .aside{
+    display: none;
+  }
+}

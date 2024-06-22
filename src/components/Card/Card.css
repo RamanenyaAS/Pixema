@@ -7,8 +7,9 @@
 }
 
 .card__rating {
-  position: absolute;
-  top: 20px;
+  position: relative;
+  width: fit-content;
+  top: 40px;
   left: 20px;
   padding: 2px 8px;
   color: var(--Contextual-Colors-White, #FFF);
@@ -33,4 +34,28 @@
 .card__genre {
   color: var(--Contextual-Colors-Light, #AFB2B6);
   font-weight: 500;
+}
+
+@media (max-width: 1180px) {
+  .card {
+    padding: 0px 20px 20px 0px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1220px) {
+  .card__image {
+    width: 200px;
+    height: 290px;
+  }
+  .card__title{
+    width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: 0px 5px 15px 0px;
+  }
 }

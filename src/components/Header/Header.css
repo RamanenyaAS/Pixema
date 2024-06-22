@@ -10,3 +10,35 @@
   height: 40px;
   padding-right: 130px;
 }
+
+.header-mobile{
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+}
+.header-top-mobile{
+  display: flex;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+
+@media (max-width: 1440px){
+  .logo{
+    padding-right: 65px;
+  }
+}
+
+@media (max-width: 700px){
+  .header-block{
+    display: none;
+  }
+  .header-mobile{
+    display: flex;
+  }
+}
+
+@media (max-width: 350px){
+  .logo{
+    padding-right: 5px;
+  }
+}

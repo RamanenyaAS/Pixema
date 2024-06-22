@@ -1,0 +1,29 @@
+.burger{
+  position: relative;
+}
+.burger-drop-down {
+  width: 200px;
+  position: absolute;
+  left: -100px;
+  top: 70px;
+  background-color: #242426;
+  border-radius: 10px;
+  font-weight: 500;
+  z-index: 999;
+}
+
+.burger__image {
+  display: none;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--System-Colors-Primary, #7B61FF);
+}
+
+@media (max-width: 800px) {
+  .burger__image {
+    display: flex;
+  }
+  .burger-drop-down{
+    left: -150px;
+  }
+}
