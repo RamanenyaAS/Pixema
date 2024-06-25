@@ -1,10 +1,15 @@
 import "./Links.css"
+import { IconType } from 'react-icons';
 
-function Links({title, src, isDisabled} : {title: string, src: string, isDisabled:boolean}) {
+function Links({ title, Icon, isDisabled }: { title: string, Icon: IconType | string, isDisabled: boolean }) {
   return (
     <>
       <div className="link-block">
-        <img className="link-block__image" src={src} alt={title} />
+        {typeof Icon == "string" ?
+          <img className="link-block__image" src={Icon} alt={title} />
+          :
+          <Icon className="link-block__icon" />
+        }
         <div className="link-block__title">{title}</div>
       </div>
     </>

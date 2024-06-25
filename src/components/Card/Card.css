@@ -30,7 +30,9 @@
   font-weight: 700;
   padding: 24px 0px 4px 0px;
 }
-
+.card__title_light{
+  color: black;
+}
 .card__genre {
   color: var(--Contextual-Colors-Light, #AFB2B6);
   font-weight: 500;

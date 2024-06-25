@@ -13,6 +13,11 @@
   color: white;
   padding-left: 20px;
 }
+.search__input_light{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
 .search__image {
   right: 40px;
   position: relative;

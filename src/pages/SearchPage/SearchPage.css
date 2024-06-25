@@ -4,8 +4,23 @@
   flex-direction: column;
   align-items: center;
 }
-.error-box__text{
+.error-box__text_light, .error-box__text_dark{
+  text-align: center;
   font-size: 50px;
-  color: white;
   font-weight: 600;
+}
+.error-box__text_light{
+  color: black;
+}
+.error-box__text_dark{
+  color: white;
+}
+
+@media(max-width: 800px){
+  .error-box{
+    width: 95%;
+  }
+  .error-box__text_light, .error-box__text_dark{
+    font-size: 25px;
+  }
 }

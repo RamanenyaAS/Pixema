@@ -1,18 +1,22 @@
 import "./SearchPage.css"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IInitialState, IMovie } from "../../types/interfaces";
+import { IInitialState, IMovie, ISearchResultPosts } from "../../types/interfaces";
 import { searchResult } from "../../slice/pixemaSlice";
 import Card from "../../components/Card/Card";
 import Spinner from "../../components/Spinner/Spinner";
+import { ThemeContext } from "../../providers/myContext";
+import { AppDispatch } from "../../store/store";
+
 function SearchPage() {
   const dispatch = useDispatch()<any>;
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const data: any = useSelector((state: IInitialState) => state.searchResultMovies);
+  console.log(dispatch, "dispatch");
+  console.log(data)
   const status = useSelector((state: IInitialState) => state.status);
-
-
+  const [topic] = useContext(ThemeContext);
 
   useEffect(() => {
     if (searchTerm) {
@@ -30,17 +34,17 @@ function SearchPage() {
       {status === "pending" && <Spinner />}
       {!data &&
         <div className="error-box">
-          <h1 className="error-box__text">Enter your request</h1>
+          <h1 className={`error-box__text_${topic}`}>Enter your request</h1>
         </div>
       }
       {data && data.Response === "False" && data.Error === "Too many results." &&
         <div className="error-box">
-          <h1 className="error-box__text">Too many results, please enter a more specific query</h1>
+          <h1 className={`error-box__text_${topic}`}>Too many results, please enter a more specific query</h1>
         </div>
       }
       {data && data.Response === "False" && data.Error === "Movie not found!" &&
         <div className="error-box">
-          <h1 className="error-box__text">Movie not found</h1>
+          <h1 className={`error-box__text_${topic}`}>Movie not found</h1>
         </div>
       }
       {status === "fulfilled" && data && data.Search && (

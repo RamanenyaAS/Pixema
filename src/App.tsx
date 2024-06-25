@@ -9,33 +9,42 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import SignInFormPage from './pages/SignInFormPage/SignInFormPage';
 import SignUpFormPage from './pages/SignUpFormPage/SignUpFormPage';
+import { ThemeProvider, ThemeContext } from './providers/myContext';
+import { useContext } from 'react';
 
 function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+}
+
+function AppContent() {
+  const [theme] = useContext(ThemeContext);
 
   return (
-    <>
-      <BrowserRouter>
-        <div className="background">
-          <div className="container">
-            <div className="main-page-block">
-              <Header></Header>
-              <main className="main">
-                <Aside></Aside>
-                <Routes>
-                  <Route path="/" element={<MainPage></MainPage>}></Route>
-                  <Route path='/movie/:movieId' element={<SelectedMoviePage></SelectedMoviePage>}></Route>
-                  <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
-                  <Route path='/search' element={<SearchPage></SearchPage>}></Route>
-                  <Route path='/favorites' element={<FavoritesPage></FavoritesPage>}></Route>
-                  <Route path='/signIn' element={<SignInFormPage></SignInFormPage>}></Route>
-                  <Route path='/signUp' element={<SignUpFormPage></SignUpFormPage>}></Route>
-                </Routes>
-              </main>
-            </div>
-          </div>
+    <div className={`background_${theme}`}>
+      <div className="container">
+        <div className="main-page-block">
+          <Header />
+          <main className="main">
+            <Aside />
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/movie/:movieId" element={<SelectedMoviePage />} />
+              <Route path="*" element={<ErrorPage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/signIn" element={<SignInFormPage />} />
+              <Route path="/signUp" element={<SignUpFormPage />} />
+            </Routes>
+          </main>
         </div>
-      </BrowserRouter>
-    </>
+      </div>
+    </div>
   );
 }
 

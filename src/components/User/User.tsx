@@ -1,11 +1,13 @@
 import "./User.css"
 import ArrowDown from "../../images/IconArrowDown.svg"
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../providers/myContext";
 
 function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: () => void, onSignIn?: () => void }) {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [topic] = useContext(ThemeContext);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
 
@@ -45,7 +47,7 @@ function User({ username, onLogOut, onSignIn }: { username: string, onLogOut?: (
     <>
       <div className="user-block" onClick={toggleDropdown}>
         <div className="user-block__initial">{initial}</div>
-        <div className="user-block__name">{username}</div>
+        <div className={`user-block__name user-block__name_${topic}`}>{username}</div>
         <img className="user-block__image" src={ArrowDown} alt="Arrow Down" />
         {isOpen &&
           <div ref={dropdownRef} className="drop-down-list">

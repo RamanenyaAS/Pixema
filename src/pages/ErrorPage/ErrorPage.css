@@ -4,6 +4,32 @@
   align-items: center;
   flex-direction: column;
 }
-.error-image{
-  max-width: 50%;
+.error__image{
+  max-width: 35%;
+}
+
+.error__text_light, .error__text_dark{
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+.error__text_dark{
+  color: white;
+}
+.error__text_light{
+  color: black;
+}
+
+@media(max-width: 1000px){
+  .error-container{
+    width: 95%;
+    margin: 0 auto;
+  }
+  .error__image{
+    max-width: 70%;
+  }
+  .error__text_light, .error__text_dark{
+    font-size: 30px;
+  }
 }

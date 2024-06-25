@@ -38,8 +38,21 @@ export interface IMovie {
   Genre: string
 }
 
+export interface ISelectedMovie extends Omit<IMovie, 'id'> {
+  Awards: string;
+  DVD: string;
+  Language: string;
+  Metascore: string;
+  Rated: string;
+  Response: string;
+  Website: string;
+  imdbVotes: string;
+}
 export interface ISearchResultPosts {
-
+  Response?: string;
+  Error?: string;
+  Search?: IMovie[];
+  totalResults?: string;
 }
 export interface IInitialState {
   movies: [] | IMovie[],
@@ -50,8 +63,8 @@ export interface IInitialState {
   searchResultMovies: IMovie[] | null
 }
 
-// export interface IPayload {
-//   Response: string,
-//   Search: [] | IMovie[],
-//   totalResults: string
-// }
+export interface IPayload {
+  Response: string,
+  Search: [] | IMovie[],
+  totalResults: string
+}

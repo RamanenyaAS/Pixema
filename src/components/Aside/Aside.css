@@ -15,6 +15,23 @@
   bottom: 64px;
 }
 
+.theme-block{
+  display: flex;
+  align-items: center;
+}
+.theme-block__icon {
+  width: 24px;
+  height: 24px;
+  color: #AFB2B6;
+}
+
+.theme-block__icon.light {
+  color: black;
+}
+
+.theme-block__icon.dark {
+  color: #AFB2B6;
+}
 @media (max-width: 800px){
   .aside{
     display: none;

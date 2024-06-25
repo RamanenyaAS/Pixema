@@ -1,15 +1,17 @@
 import "./FavoritesPage.css"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import { IInitialState, IMovie } from "../../types/interfaces";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../providers/myContext";
 
 function FavoritesPage() {
 
   const [movies, setMovies] = useState<IMovie[]>([]);
+  const [topic] = useContext(ThemeContext);
   const status = useSelector((state: IInitialState) => state.status)
 
 
@@ -26,7 +28,7 @@ function FavoritesPage() {
         <div className="movie-block">
           <Spinner></Spinner>
         </div> : null}
-      {status === "fulfilled" ?
+      {status === "fulfilled" && movies.length > 0 ?
         <>
           <div className="movie-block">
             {movies.map((movie) => (
@@ -37,8 +39,8 @@ function FavoritesPage() {
       {status === "fulfilled" && movies.length === 0 ?
         <>
           <div className="favorites-empty-block">
-            <h1 className="favorites-empty-block__title">Favorites list is empty</h1>
-            <div className="favorites-empty-block__subtitle">Select the movie you like and add it to your favorites</div>
+            <h1 className={`favorites-empty-block__title_${topic}`}>Favorites list is empty</h1>
+            <div className={`favorites-empty-block__subtitle_${topic}`}>Select the movie you like and add it to your favorites</div>
             <Link to={"/"}>
               <Button text='Go Home' type='button-primary' isDisabled={false}></Button>
             </Link>

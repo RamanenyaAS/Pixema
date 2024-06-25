@@ -1,5 +1,5 @@
 .movie-block {
-  /* width: 100%; */
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: 56px 10px 64px 10px;
@@ -43,15 +43,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* 
-@media (max-width: 880px) {
-  .movie-block {
-    grid-template-columns: repeat(2, 1fr);
-  }
-} */
-
 @media (max-width: 600px) {
   .movie-block {
+    width: 95%;
     grid-template-columns: repeat(1, 1fr);
   }
 }

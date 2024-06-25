@@ -46,8 +46,12 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
     );
 
     if (isAlreadyInFavorites) {
-      setIsAlreadyAdded(true);
-      alert("The movie has already been added to your favorites")
+      favoritesMovie = favoritesMovie.filter(
+        (favMovie: IMovie) => favMovie.imdbID !== movie.imdbID
+      );
+      localStorage.setItem("movies", JSON.stringify(favoritesMovie));
+      setIsAlreadyAdded(false);
+      alert("The movie has been removed from your favorites");
     } else {
       favoritesMovie.push(movie);
       localStorage.setItem("movies", JSON.stringify(favoritesMovie));

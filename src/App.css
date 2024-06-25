@@ -1,5 +1,9 @@
-.background{
+.background_dark{
   background-color: #000000;
+  min-height: 100vh;
+}
+.background_light{
+  background-color: white;
   min-height: 100vh;
 }
 .link{
@@ -11,6 +15,6 @@
 
 @media (max-width: 1440px){
   .main{
-    justify-content: center;
+    /* justify-content: center; */
   }
 }

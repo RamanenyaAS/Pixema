@@ -1,19 +1,20 @@
 import "./MainPage.css"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { fetchMovies } from "../../slice/pixemaSlice"
 import Card from "../../components/Card/Card"
 import Spinner from "../../components/Spinner/Spinner"
 import { IInitialState, IMovie } from "../../types/interfaces"
+import { ThemeContext } from "../../providers/myContext"
 
 function MainPage() {
 
   const dispatch = useDispatch<any>();
   const [page, setPage] = useState<number>(1);
-
+  const [topic] = useContext(ThemeContext);
   const films = useSelector((state: IInitialState) => state.movies);
   const status = useSelector((state: IInitialState) => state.status)
-
+  console.log(films)
   const [filmTitle] = useState<string>(() => {
     const moviesWords = [
       "movie",

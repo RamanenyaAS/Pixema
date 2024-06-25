@@ -18,12 +18,23 @@
   border-radius: 10px;
   background: var(--System-Colors-Primary, #7B61FF);
 }
-
+@media(min-width:800px){
+  .burger-drop-down{
+    display: none;
+  }
+}
 @media (max-width: 800px) {
   .burger__image {
     display: flex;
   }
   .burger-drop-down{
     left: -150px;
+  }
+  .theme-block{
+    justify-content: center;
+    padding: 15px 0px;
+  }
+  .theme-block__icon.light {
+    color: #AFB2B6;
   }
 }
