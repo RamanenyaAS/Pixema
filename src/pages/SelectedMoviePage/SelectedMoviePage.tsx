@@ -1,7 +1,7 @@
 import "./SelectedMoviePage.css"
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { IInitialState, IMovie, ISelectedMovie } from "../../types/interfaces";
+import { IInitialState, IMovie } from "../../types/interfaces";
 import { useContext, useEffect } from "react";
 import { fetchMovies, fetchOneMovie } from "../../slice/pixemaSlice";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
@@ -14,8 +14,7 @@ function SelectedMoviePage() {
   const { movieId } = useParams<string>();
   const [topic] = useContext(ThemeContext);
   const dispatch = useDispatch()<any>;
-  const selectedMovie: any = useSelector((state: IInitialState) => state.oneMovie);
-  console.log(selectedMovie)
+  const selectedMovie: IMovie | any = useSelector((state: IInitialState) => state.oneMovie);
   const status = useSelector((state: IInitialState) => state.status);
   const films = useSelector((state: IInitialState) => state.movies);
   const page = 1;

@@ -53,12 +53,12 @@ function Burger() {
             </div>
             <div className="drop-down-block">
               <Link to={"/"} className="link drop-down-block__text" >
-                <Links title="Home" Icon={IconHome} isDisabled={false}></Links>
+                <Links title="Home" Icon={IconHome}></Links>
               </Link>
-              <Links title="Trends" Icon={IconTrends} isDisabled={false}></Links>
+              <Links title="Trends" Icon={IconTrends} ></Links>
               <div className="drop-down-block">
                 <Link to={"/favorites"} className="link drop-down-block__text" >
-                  <Links title="Favorites" Icon={IconFavorites} isDisabled={false}></Links>
+                  <Links title="Favorites" Icon={IconFavorites}></Links>
                 </Link>
               </div>
               <div className="drop-down-block">

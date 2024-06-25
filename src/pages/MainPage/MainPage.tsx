@@ -6,15 +6,15 @@ import Card from "../../components/Card/Card"
 import Spinner from "../../components/Spinner/Spinner"
 import { IInitialState, IMovie } from "../../types/interfaces"
 import { ThemeContext } from "../../providers/myContext"
+import { AppDispatch } from "../../store/store"
 
 function MainPage() {
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
   const [page, setPage] = useState<number>(1);
   const [topic] = useContext(ThemeContext);
   const films = useSelector((state: IInitialState) => state.movies);
   const status = useSelector((state: IInitialState) => state.status)
-  console.log(films)
   const [filmTitle] = useState<string>(() => {
     const moviesWords = [
       "movie",

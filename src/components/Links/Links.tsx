@@ -1,7 +1,7 @@
 import "./Links.css"
 import { IconType } from 'react-icons';
 
-function Links({ title, Icon, isDisabled }: { title: string, Icon: IconType | string, isDisabled: boolean }) {
+function Links({ title, Icon }: { title: string, Icon: IconType | string }) {
   return (
     <>
       <div className="link-block">

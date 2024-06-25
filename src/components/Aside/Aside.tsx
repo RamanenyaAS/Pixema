@@ -5,9 +5,6 @@ import IconTrends from "../../images/IconTrends.svg"
 import IconFavorites from "../../images/IconFavorites.svg"
 import { FaMoon } from "react-icons/fa";
 import { IoSunny } from "react-icons/io5";
-import { RiHome6Fill } from "react-icons/ri";
-import { AiFillFire } from "react-icons/ai";
-import { IoBookmark } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IInitialState } from "../../types/interfaces";
@@ -31,13 +28,13 @@ function Aside() {
       {status === "fulfilled" ?
         <aside className="aside">
           <Link to={"/"} className="link">
-            <Links title="Home" Icon={IconHome} isDisabled={false}></Links>
+            <Links title="Home" Icon={IconHome}></Links>
           </Link>
           <Link to={"/"} className="link">
-            <Links title="Trends" Icon={IconTrends} isDisabled={false}></Links>
+            <Links title="Trends" Icon={IconTrends}></Links>
           </Link>
           <Link to={"/favorites"} className="link">
-            <Links title="Favorites" Icon={IconFavorites} isDisabled={false}></Links>
+            <Links title="Favorites" Icon={IconFavorites}></Links>
           </Link>
           <div className="theme-block">
             <FaMoon className={`theme-block__icon ${topic}`} />
