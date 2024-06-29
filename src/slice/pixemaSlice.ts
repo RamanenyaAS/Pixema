@@ -12,7 +12,7 @@ export const fetchMovies = createAsyncThunk(
         throw new Error("Something went wrong")
       }
       const data = await response.json();
-      return data;
+      return { movies: data.Search, page }
     }
     catch (error) {
       return rejectWithValue((error as Error).message)
@@ -39,7 +39,7 @@ export const fetchOneMovie = createAsyncThunk(
 
 export const searchResult = createAsyncThunk(
   'pixema/fetchSearchResult',
-  async function ({text,page}: {text: string, page: number}, { rejectWithValue }) {
+  async function ({ text, page }: { text: string, page: number }, { rejectWithValue }) {
     try {
       const responce = await fetch(`https://www.omdbapi.com/?apikey=${movieKey}&s=${text}&page=${page}`);
       if (!responce.ok) {
@@ -62,6 +62,7 @@ export const pixemaSlice = createSlice({
     favorites: [],
     status: null,
     error: null,
+    searchTerm: "",
     searchResultMovies: null
   },
   reducers: {
@@ -73,6 +74,9 @@ export const pixemaSlice = createSlice({
       }
       state.favorites = [...state.favorites, payload]
       alert("Фильм успешно добавлен в избранное")
+    },
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -82,7 +86,7 @@ export const pixemaSlice = createSlice({
     }),
       builder.addCase(fetchMovies.fulfilled, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "fulfilled";
-        state.movies = payload.Search;
+        state.movies = payload.page > 1 ? [...state.movies, ...payload.movies] : payload.movies;
       }),
       builder.addCase(fetchMovies.rejected, (state: IInitialState, { payload }: { payload: any }) => {
         state.status = "rejected";
@@ -115,7 +119,7 @@ export const pixemaSlice = createSlice({
   },
 })
 
-export const { addToFavorite } = pixemaSlice.actions;
+export const { addToFavorite, setSearchTerm } = pixemaSlice.actions;
 
 
 export default pixemaSlice.reducer;

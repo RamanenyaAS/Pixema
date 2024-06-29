@@ -59,13 +59,12 @@ function MainPage() {
 
 
   useEffect(() => {
-    dispatch(fetchMovies({ filmTitle, page }))
-  }, [page]);
-
+    dispatch(fetchMovies({ filmTitle, page }));
+  }, [page, dispatch, filmTitle]); 
 
   const fetchMoreMovies = () => {
-    setPage(prevPage => prevPage + 1)
-  }
+    setPage((prevPage) => prevPage + 1);
+  };
 
 
   return (

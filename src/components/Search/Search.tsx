@@ -3,7 +3,7 @@ import IconFilter from "../../images/IconFilter.svg"
 import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { searchResult } from "../../slice/pixemaSlice";
+import { searchResult, setSearchTerm } from "../../slice/pixemaSlice";
 import { ThemeContext } from "../../providers/myContext";
 
 function Search({ isDisabled }: { isDisabled: boolean }) {
@@ -20,6 +20,7 @@ function Search({ isDisabled }: { isDisabled: boolean }) {
   const enter = (event: any) => {
     if (event.key === "Enter") {
       if (searchText.trim() !== "") {
+        dispatch(setSearchTerm(searchText));
         navigate("/search");
         dispatch(searchResult({ text: searchText, page: 1 }));
         setSearchText("");

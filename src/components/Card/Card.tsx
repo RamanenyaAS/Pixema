@@ -46,7 +46,7 @@ function Card({ movie }: { movie: IMovie }) {
               <div className="card__rating">{movieDetails.imdbRating}</div>
               <img className="card__image" src={movie.Poster} alt="" />
               <div className={`card__title card__title_${topic}`}>{movie.Title}</div>
-              <div className="card__genre">{movieDetails.Genre}</div>
+              <div className="card__genre">{movieDetails.Genre.replace(new RegExp(",", "g"), " • ")}</div>
             </>
           )}
         </Link>

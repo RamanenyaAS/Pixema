@@ -60,6 +60,7 @@ export interface IInitialState {
   favorites: [] | IMovie[],
   status: null | string,
   error: null | string,
+  searchTerm: string,
   searchResultMovies: IMovie[] | null
 }
 

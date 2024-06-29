@@ -10,11 +10,9 @@ import { AppDispatch } from "../../store/store";
 
 function SearchPage() {
   const dispatch = useDispatch()<any>;
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const searchTerm = useSelector((state: IInitialState) => state.searchTerm); // получаем searchTerm из хранилища
   const [page, setPage] = useState<number>(1);
   const data: any = useSelector((state: IInitialState) => state.searchResultMovies);
-  console.log(dispatch, "dispatch");
-  console.log(data)
   const status = useSelector((state: IInitialState) => state.status);
   const [topic] = useContext(ThemeContext);
 
@@ -47,7 +45,7 @@ function SearchPage() {
           <h1 className={`error-box__text_${topic}`}>Movie not found</h1>
         </div>
       }
-      {status === "fulfilled" && data && data.Search && (
+      {status === "fulfilled" && data.Search && (
         <div className="movie-block">
           {data.Search.map((movie: IMovie) => (
             <Card key={movie.imdbID} movie={movie} />
