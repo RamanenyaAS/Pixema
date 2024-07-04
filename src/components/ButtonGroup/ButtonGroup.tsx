@@ -66,7 +66,7 @@ function ButtonGroup({ movie }: { movie: IMovie }) {
   return (
     <>
       <div className="button-group-block">
-        <div className="left-button" onClick={handleAddToFavorites}>
+        <div className="left-button" onClick={handleAddToFavorites} data-testid="cypress-add-to-favorites">
           {isAlreadyAdded === true ? <img className="button-group__image" src={IconFavoritesActive} alt="Favorites" /> : <img className="button-group__image" src={IconFavorites} alt="Favorites" />}
         </div>
         <div className="right-button" onClick={toggleDropdown}>

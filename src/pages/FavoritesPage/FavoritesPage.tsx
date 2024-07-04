@@ -30,7 +30,7 @@ function FavoritesPage() {
         </div> : null}
       {status === "fulfilled" && movies.length > 0 ?
         <>
-          <div className="movie-block">
+          <div className="movie-block" data-testid="cypress-favorites">
             {movies.map((movie) => (
               <Card key={movie.imdbID} movie={movie} />
             ))}
@@ -38,7 +38,7 @@ function FavoritesPage() {
         </> : null}
       {status === "fulfilled" && movies.length === 0 ?
         <>
-          <div className="favorites-empty-block">
+          <div className="favorites-empty-block" data-testid="cypress-favorites-empty">
             <h1 className={`favorites-empty-block__title_${topic}`}>Favorites list is empty</h1>
             <div className={`favorites-empty-block__subtitle_${topic}`}>Select the movie you like and add it to your favorites</div>
             <Link to={"/"}>

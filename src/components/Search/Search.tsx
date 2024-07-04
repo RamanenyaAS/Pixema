@@ -33,7 +33,7 @@ function Search({ isDisabled }: { isDisabled: boolean }) {
   return (
     <>
       <div className="search">
-        <input className={`search__input search__input_${topic}`} type="text" value={searchText} onChange={(e) => changeSearchText(e)} onKeyDown={(e) => enter(e)} placeholder="Search..." disabled={isDisabled} />
+        <input data-testid="cypress-header-search" className={`search__input search__input_${topic}`} type="text" value={searchText} onChange={(e) => changeSearchText(e)} onKeyDown={(e) => enter(e)} placeholder="Search..." disabled={isDisabled} />
         <img className="search__image" src={IconFilter} alt="Filter"></img>
       </div>
     </>

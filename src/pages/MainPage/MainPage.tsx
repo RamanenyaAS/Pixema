@@ -77,7 +77,7 @@ function MainPage() {
         </> : null}
       {status === "fulfilled" ?
         <>
-          <div className="movie-block">
+          <div className="movie-block" data-testid="cypress-movies">
             {films && films.map((movie: IMovie) => (
               <Card key={movie.imdbID} movie={movie} ></Card>
             ))}

@@ -39,13 +39,13 @@ function Card({ movie }: { movie: IMovie }) {
 
   return (
     <>
-      <div className="card">
+      <div className="card" data-testid={`cypress-card-${movie.imdbID}`}>
         <Link className="link" key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
           {movieDetails && (
             <>
-              <div className="card__rating">{movieDetails.imdbRating}</div>
-              <img className="card__image" src={movie.Poster} alt="" />
-              <div className={`card__title card__title_${topic}`}>{movie.Title}</div>
+              <div className="card__rating" data-testid={`cypress-card-rating-${movie.imdbID}`}>{movieDetails.imdbRating}</div>
+              <img className="card__image" src={movie.Poster} alt="Movie Poster" data-testid={`cypress-card-image-${movie.imdbID}`} />
+              <div className={`card__title card__title_${topic}`} data-testid={`cypress-card-title-${movie.imdbID}`}>{movie.Title}</div>
               <div className="card__genre">{movieDetails.Genre.replace(new RegExp(",", "g"), " • ")}</div>
             </>
           )}

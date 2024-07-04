@@ -26,14 +26,14 @@ function Aside() {
   return (
     <>
       {status === "fulfilled" ?
-        <aside className="aside">
+        <aside className="aside" data-testid="cypress-aside">
           <Link to={"/"} className="link">
             <Links title="Home" Icon={IconHome}></Links>
           </Link>
           <Link to={"/"} className="link">
             <Links title="Trends" Icon={IconTrends}></Links>
           </Link>
-          <Link to={"/favorites"} className="link">
+          <Link to={"/favorites"} className="link" data-testid="cypress-favorites-link">
             <Links title="Favorites" Icon={IconFavorites}></Links>
           </Link>
           <div className="theme-block">

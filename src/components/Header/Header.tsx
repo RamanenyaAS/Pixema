@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <>
-      <header className="header">
+      <header className="header" data-testid="cypress-header">
         <div className="header-block">
           <Link to={"/"} className="link">
             {topic === "dark" ?
@@ -42,7 +42,7 @@ function Header() {
         </div>
       </header>
 
-      <header className="header-mobile">
+      <header className="header-mobile" data-testid="cypress-header">
         <div className="header-top-mobile">
           <Link to={"/"} className="link">
             {topic === "dark" ?

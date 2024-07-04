@@ -37,12 +37,12 @@ function SearchPage() {
       }
       {data && data.Response === "False" && data.Error === "Too many results." &&
         <div className="error-box">
-          <h1 className={`error-box__text_${topic}`}>Too many results, please enter a more specific query</h1>
+          <h1 className={`error-box__text_${topic}`} data-testid="cypress-search-error">Too many results, please enter a more specific query</h1>
         </div>
       }
       {data && data.Response === "False" && data.Error === "Movie not found!" &&
         <div className="error-box">
-          <h1 className={`error-box__text_${topic}`}>Movie not found</h1>
+          <h1 className={`error-box__text_${topic}`} data-testid="cypress-search-error">Movie not found</h1>
         </div>
       }
       {status === "fulfilled" && data.Search && (
